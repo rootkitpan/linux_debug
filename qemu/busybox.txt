@@ -1,0 +1,49 @@
+
+
+
+make defconfig
+
+
+make menuconfig
+
+
+Settings
+  Build Options
+    [*] Build static binary (no shared libs) 
+
+
+
+make
+
+make install
+
+
+
+busybox/_install
+mkdir bin dev etc etc/init.d proc sbin sys tmp usr mnt
+
+dev下
+sudo mknod -m 600 console c 5 1
+sudo mknod -m 620 tty2 c 4 2
+sudo mknod -m 620 tty3 c 4 3
+sudo mknod -m 620 tty4 c 4 4
+
+
+
+/etc/init.d/rcS新規し、実行権限を与え、下記、/proc mount処理を追加
+mount -t proc none /proc
+chmod a+x rcS
+
+
+// ext2 image
+dd if=/dev/zero of=./ext2.img bs=1M count=8192
+
+
+
+
+cd busybox/_install
+find . | cpio -o -H newc | gzip > ../rootfs.img
+
+
+
+

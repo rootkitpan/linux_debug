@@ -1,0 +1,14 @@
+
+
+
+make x86_64_defconfig
+make -j
+
+
+
+
+make menuconfig
+
+
+
+
