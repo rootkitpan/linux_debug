@@ -1,0 +1,105 @@
+
+
+跳过自动安装
+8192 MB RAM
+8 CPU
+Disk 2TB
+
+enable EFI
+
+rootkitpan / fsd123
+
+============================================
+
+
+[代理]
+192.168.120.1	8080
+
+sudo vi /etc/apt/apt.conf.d/80proxy
+sudo gedit /etc/apt/apt.conf.d/80proxy
+Acquire::http::proxy "http://192.168.120.1:8080";
+Acquire::https::proxy "http://192.168.120.1:8080";
+Acquire::ftp::proxy "ftp://192.168.120.1:8080";
+
+
+
+永不锁屏
+
+
+
+
+[更新源]
+
+sudo apt update
+sudo apt upgrade
+
+restart
+
+
+
+
+[安装增强工具]
+
+sudo apt install bzip2
+运行 VBoxLinuxAdditions.run
+安装增强工具
+剪贴板 双向
+
+
+restart
+
+
+[gedit]
+sudo apt install gedit
+
+
+
+[git]
+
+sudo apt install git
+
+git config --global core.gitproxy "/usr/local/bin/proxy-cmd.sh"
+proxy-cmd.sh 内容如下
+#!/bin/bash
+CORKSCREW=`which corkscrew`
+$CORKSCREW 192.168.120.1 8080 $1 $2
+
+proxy-cmd.sh chmod 777
+
+
+vi ~/.bashrc
+最后加入
+export GIT_PROXY_COMMAND=/usr/local/bin/proxy-cmd.sh
+
+
+
+
+[wget]
+vi ~/.wgetrc
+https_proxy = http://192.168.120.1:8080
+http_proxy = http://192.168.120.1:8080
+ftp_proxy = http://192.168.120.1:8080
+no_proxy = 192.168.120.1:8080;127.0.0.1
+use_proxy = on
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+set http_proxy=http://192.168.120.1:8080
+
+set https_proxy=https://192.168.120.1:8080
+
+
+

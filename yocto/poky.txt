@@ -1,0 +1,25 @@
+
+
+
+disable AppArmor
+
+
+
+
+bitbake target --runall=fetch
+
+
+
+Fetch ? get the source code
+Extract ? unpack the sources
+Patch ? apply patches for bug fixes and new capability
+Configure ? set up your environment specifications
+Build ? compile and link
+Install ? copy files to target directories
+Package ? bundle files for installation
+
+
+
+Know that you can generate a dependency graph and learn how to do it: A dependency graph shows dependencies between recipes, tasks, and targets. You can use the Åg-gÅh option with BitBake to generate this graph
+
+
