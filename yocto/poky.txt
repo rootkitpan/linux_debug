@@ -1,12 +1,41 @@
 
 
 
-disable AppArmor
+if git clone git://git.yoctoproject.org/poky  not work, try this
+git clone https://git.yoctoproject.org/poky
+
+
+disable AppArmor & restart
 
 
 
 
-bitbake target --runall=fetch
+bitbake core-image-sato --runall=fetch
+-g
+
+
+[generate dependency information]
+bitbake -g <target>
+dot -Tpng task-depends.dot -o dependencies.png
+
+sudo apt install graphviz
+
+
+
+
+
+
+[show layers]
+bitbake-layers show-layers
+
+
+
+[show recipes]
+bitbake-layers show-recipes
+
+
+
+
 
 
 

@@ -66,6 +66,8 @@ $CORKSCREW 192.168.120.1 8080 $1 $2
 
 proxy-cmd.sh chmod 777
 
+sudo apt install corkscrew
+
 
 vi ~/.bashrc
 最后加入
@@ -86,20 +88,30 @@ use_proxy = on
 
 
 
+[samba]
 
 
 
+sudo apt install samba
+
+sudo smbpasswd -a rootkitpan
+
+/etc/samba/smb.conf
+
+[Yocto_VM_share]
+   path = /home/rootkitpan/vm_share
+   browserable = yes
+   guest ok = yes
+   read only = no
+
+testparm /etc/samba/smb.conf
+
+增加一块网卡
+仅主机Host-only
 
 
+sudo apt install net-tools
 
-
-
-
-
-
-set http_proxy=http://192.168.120.1:8080
-
-set https_proxy=https://192.168.120.1:8080
-
+windows也得重启
 
 
