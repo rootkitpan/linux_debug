@@ -98,11 +98,12 @@ sudo smbpasswd -a rootkitpan
 
 /etc/samba/smb.conf
 
-[Yocto_VM_share]
+[vm_share]
    path = /home/rootkitpan/vm_share
-   browserable = yes
+   browseable = yes
    guest ok = yes
    read only = no
+   valid users = rootkitpan
 
 testparm /etc/samba/smb.conf
 
@@ -113,5 +114,29 @@ testparm /etc/samba/smb.conf
 sudo apt install net-tools
 
 windows也得重启
+
+
+
+换个显示名字
+
+
+不允许一个以上用户。。。。。
+删除凭据
+重启WorksStation服务
+
+
+
+
+[NIC]
+/etc/network/interfaces
+
+
+allow-hotplug enp0s8
+iface enp0s8 inet dhcp 
+
+
+
+[uGet]
+sudo apt install uget
 
 

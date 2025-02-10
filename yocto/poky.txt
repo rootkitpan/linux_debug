@@ -23,10 +23,21 @@ sudo apt install graphviz
 
 
 
+===================================================
+[layers]
 
 
-[show layers]
-bitbake-layers show-layers
+rootkitpan@rootkitpan:~/vm_share/poky/build$ bitbake-layers show-layers
+NOTE: Starting bitbake server...
+layer                 path                                                                    priority
+========================================================================================================
+core                  /home/rootkitpan/vm_share/poky/meta                                     5
+yocto                 /home/rootkitpan/vm_share/poky/meta-poky                                5
+yoctobsp              /home/rootkitpan/vm_share/poky/meta-yocto-bsp                           5
+
+
+
+
 
 
 
@@ -50,5 +61,11 @@ Package ? bundle files for installation
 
 
 Know that you can generate a dependency graph and learn how to do it: A dependency graph shows dependencies between recipes, tasks, and targets. You can use the Åg-gÅh option with BitBake to generate this graph
+
+
+
+
+
+
 
 
